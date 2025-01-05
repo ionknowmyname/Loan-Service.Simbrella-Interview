@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "3e7e692e-7385-4810-8d78-13e74dbb7bb0",
+		"name": "Loan Service.Simbrella Java Interview",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14117533"
+	},
+	"item": [
+		{
+			"name": "GET Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/health/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"health",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"test\",\n    \"email\": \"test@email.com\",\n    \"phoneNumber\": \"081111111111\",\n    \"userRole\": \"ADMIN\",\n    \"password\": \"11111111\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/users/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test@email.com\",\n    \"password\": \"11111111\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Create Loan",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsImlhdCI6MTczNjAyNDgzOSwiZXhwIjoxNzM2MTExMjM5fQ.Zu8cHhBhLQsLnNJvenwpS-Uh5UL4zUtgHbUD-NRwGKo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ownerId\": \"e57df15b-f844-4fa8-b336-f4a2d988781a\",\n    \"amount\": 5000.0,\n    \"description\": \"fake description\",\n    \"duration\": 6,\n    \"loanType\": \"CARLOAN\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/loans/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loans",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Loan List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsImlhdCI6MTczNjAyNDgzOSwiZXhwIjoxNzM2MTExMjM5fQ.Zu8cHhBhLQsLnNJvenwpS-Uh5UL4zUtgHbUD-NRwGKo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/loans/?page=1&size=10",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loans",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "queryParameter",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "startDate",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "endDate",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Update Loan Status by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsImlhdCI6MTczNjAyNDgzOSwiZXhwIjoxNzM2MTExMjM5fQ.Zu8cHhBhLQsLnNJvenwpS-Uh5UL4zUtgHbUD-NRwGKo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/loans/:loanId/update?status=REJECTED",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loans",
+						":loanId",
+						"update"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "REJECTED",
+							"description": "APPROVED | REJECTED | REPAID"
+						}
+					],
+					"variable": [
+						{
+							"key": "loanId",
+							"value": "fd2a7f84-e086-4263-ab9a-a92c5124a8a9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Create Transaction",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsImlhdCI6MTczNjA5NTU2OSwiZXhwIjoxNzM2MTgxOTY5fQ.Fm4HaT52aKEE0wCs6HcsqpH_EUTfwAMctDHtzA8_b44",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"loanId\": \"fd2a7f84-e086-4263-ab9a-a92c5124a8a9\",\n    \"amount\": 3000.0,\n    \"description\": \"fake description\",\n    \"transactionType\": \"DISBURSEMENT\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transactions/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Transactions List for Loan",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsImlhdCI6MTczNjA5NTU2OSwiZXhwIjoxNzM2MTgxOTY5fQ.Fm4HaT52aKEE0wCs6HcsqpH_EUTfwAMctDHtzA8_b44",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/transactions/:loanId",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions",
+						":loanId"
+					],
+					"variable": [
+						{
+							"key": "loanId",
+							"value": "fd2a7f84-e086-4263-ab9a-a92c5124a8a9"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
