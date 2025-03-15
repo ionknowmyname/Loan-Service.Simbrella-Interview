@@ -85,13 +85,12 @@ class LoanControllerIT {
         // Verify that loan was actually saved in the database
         assertEquals(1, loanRepository.count());
 
-        // Fetch the saved loan
-        Loan savedLoan = loanRepository.findAll().get(0);
 
         // Validate that the saved loan has the same amount as the request
+        Loan savedLoan = loanRepository.findAll().get(0);
         assertEquals(requestDto.getAmount(), savedLoan.getAmount());
 
-        // Validate that the ownerId matches the test user
+        // Validate that the ownerId matches the test user id
         assertEquals(testUserId, savedLoan.getOwnerId());
     }
 
