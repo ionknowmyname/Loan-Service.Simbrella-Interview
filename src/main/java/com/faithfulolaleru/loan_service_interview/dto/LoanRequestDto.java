@@ -2,6 +2,7 @@ package com.faithfulolaleru.loan_service_interview.dto;
 
 import com.faithfulolaleru.loan_service_interview.enums.LoanType;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import javax.validation.constraints.Size;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class LoanRequestDto {
 
     @Size(max = 100)
