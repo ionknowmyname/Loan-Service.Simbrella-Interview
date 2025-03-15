@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.UUID;
@@ -37,10 +38,12 @@ class TransactionServiceImplTest {
     @Autowired
     private TransactionService transactionService;
 
-    @MockBean
+//    @MockBean
+    @MockitoBean
     private LoanService loanService;
 
-    @MockBean
+//    @MockBean
+    @MockitoBean
     private TransactionRepository transactionRepository;
 
     private ModelMapper modelMapper = new ModelMapper();

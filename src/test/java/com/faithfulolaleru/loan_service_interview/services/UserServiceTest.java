@@ -18,6 +18,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.UUID;
@@ -35,10 +36,12 @@ class UserServiceTest {
     @Autowired
     private UserService userService;
 
-    @MockBean
+//    @MockBean
+    @MockitoBean
     private UserRepository userRepository;
 
-    @MockBean
+//    @MockBean
+    @MockitoBean
     private PasswordEncoder passwordEncoder;
 
 //    @Mock

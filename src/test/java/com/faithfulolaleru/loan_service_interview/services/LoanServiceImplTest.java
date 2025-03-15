@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.time.LocalDateTime;
@@ -35,10 +36,12 @@ class LoanServiceImplTest {
     @Autowired
     private LoanService loanService;
 
-    @MockBean
+//    @MockBean
+    @MockitoBean
     private UserService userService;
 
-    @MockBean
+//    @MockBean
+    @MockitoBean
     private LoanRepository loanRepository;
 
     private ModelMapper modelMapper = new ModelMapper();
